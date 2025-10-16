@@ -51,9 +51,10 @@ const updateHighScore = async (req, res) => {
 
 const getLeaderboard = async (req, res) => {
   try {
+    const n = parseInt(req.query.n) || 5; // Default to 5 if n is not provided
     const leaderboard = await User.find({})
       .sort({ highScore: -1 }) // Sort by high score in descending order
-      .limit(5) // Get top 5 users
+      .limit(n) // Use the n parameter to limit the results
       .select("email highScore -_id"); // Select only email and highScore fields
 
     res.status(200).json(leaderboard);

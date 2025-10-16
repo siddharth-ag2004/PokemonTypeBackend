@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/login", loginUser);
 router.post("/signup", signupUser);
-router.patch("/highscore", updateHighScore); // Add this route
-router.get("/leaderboard", getLeaderboard); // Add this route
+router.patch("/highscore", updateHighScore);
+router.get("/leaderboard", getLeaderboard);
 
 module.exports = router;
