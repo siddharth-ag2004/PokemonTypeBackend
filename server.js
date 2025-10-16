@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-console.log("MONGODB URI:", process.env.MONGODB); // Add this line to debug
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
