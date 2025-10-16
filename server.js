@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+console.log("MONGODB URI:", process.env.MONGODB); // Add this line to debug
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -17,7 +19,7 @@ app.use((req, res, next) => {
 app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) => {
-  res.send({ mssg: "testing" });
+  res.send({ mssg: "This is the local backend" }); // Modify the message
 });
 
 mongoose

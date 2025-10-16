@@ -14,6 +14,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  highScore: {
+    type: Number,
+    default: 0, // Default high score is 0
+  },
 });
 
 userSchema.statics.signup = async function (email, password) {
