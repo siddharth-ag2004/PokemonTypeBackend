@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) => {
-  res.send({ mssg: "This is the local backend" });
+  res.send({ mssg: "This is the backend" });
 });
 
 mongoose
