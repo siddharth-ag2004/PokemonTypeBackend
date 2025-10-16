@@ -63,4 +63,19 @@ const getLeaderboard = async (req, res) => {
   }
 };
 
-module.exports = { loginUser, signupUser, updateHighScore, getLeaderboard };
+const getHighScore = async (req, res) => {
+  const { email } = req.query;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.status(200).json({ highScore: user.highScore });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = { loginUser, signupUser, updateHighScore, getLeaderboard, getHighScore };
